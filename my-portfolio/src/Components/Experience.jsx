@@ -27,6 +27,7 @@ export default function Experience() {
             Hands-on experience building, shipping, and maintaining real-world
             applications in fast-paced environments.
           </p>
+          <div className="mt-6 h-[3px] w-38 bg-orange-600" />
         </div>
 
         {/* Experience Card */}
