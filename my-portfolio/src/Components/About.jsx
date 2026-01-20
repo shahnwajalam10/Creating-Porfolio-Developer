@@ -169,7 +169,7 @@ export default function About() {
                 </div>
                 <div className="flex items-center gap-2 text-gray-600">
                   <Mail className="w-4 h-4" />
-                  <span className="text-sm">shahnwaj@example.com</span>
+                  <span className="text-sm">shahnwajalam10@gmail.com</span>
                 </div>
               </div>
             </div>
@@ -370,7 +370,7 @@ export default function About() {
               <div className="space-y-4">
                 <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg border border-gray-300 hover:border-orange-600 hover:bg-orange-50 transition-all duration-300">
                   <Mail className="w-5 h-5 text-orange-600" />
-                  <span className="text-sm text-gray-800">shahnwaj@example.com</span>
+                  <span className="text-sm text-gray-800">shahnwajalam10@gmail.com</span>
                 </div>
                 
                 <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg border border-gray-300 hover:border-orange-600 hover:bg-orange-50 transition-all duration-300">
