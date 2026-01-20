@@ -7,13 +7,39 @@ import {
   Download,
   ArrowRight,
   Mail,
-  Calendar,
-  Code2,
+  Terminal,
+  Cpu,
+  Database,
+  Globe,
+  Shield,
+  Wifi,
+  Cloud,
+  Code,
+  Binary,
   Layers,
-  GitBranch
+  GitBranch,
+  Server,
+  Monitor,
+  Palette,
+  Braces,
+  Workflow,
+  Bug,
+  GitMerge,
+  Container,
+  Network,
+  ShieldCheck,
+  // CpuChip, GlobeLock, CloudLightning not available - using alternatives
+  Globe as GlobeIcon,
+  Cloud as CloudIcon,
+  Zap as ZapIcon,
+  Shield as ShieldIcon,
+  Code as CodeIcon
 } from 'lucide-react';
+import { useState } from 'react';
 
 export default function About() {
+  const [activeTab, setActiveTab] = useState('skills');
+  
   const skills = {
     Frontend: ["React", "Next.js", "TypeScript", "JavaScript (ES6+)", "HTML5", "CSS3", "Tailwind CSS", "Redux"],
     Backend: ["Node.js", "Express", "RESTful APIs", "GraphQL", "JWT"],
@@ -21,174 +47,210 @@ export default function About() {
     Tools: ["Git", "Docker", "AWS", "CI/CD", "Jest", "Vite"],
   }
 
-  // const handleResumeClick = () => {
-  //   const resumeUrl = "shahnwaj_alam_resume.pdf";
-  //   window.open(resumeUrl, "_blank");
-  // }
-
-  const handleResumeClick = () => {
-      const resumeUrl = "/shahnwaj_alam_resume.pdf";
-
-      // open in new tab
-      window.open(resumeUrl, "_blank");
-
-      // force download
-      const link = document.createElement("a");
-      link.href = resumeUrl;
-      link.download = "Shahnwaj_Alam_Resume.pdf";
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
+  const expertise = {
+    "Frontend Development": [
+      { name: "SPA Development", icon: <Monitor className="w-4 h-4" /> },
+      { name: "Responsive Design", icon: <Palette className="w-4 h-4" /> },
+      { name: "Component Architecture", icon: <Layers className="w-4 h-4" /> },
+      { name: "State Management", icon: <Workflow className="w-4 h-4" /> }
+    ],
+    "Backend Development": [
+      { name: "API Design", icon: <Server className="w-4 h-4" /> },
+      { name: "Authentication", icon: <ShieldCheck className="w-4 h-4" /> },
+      { name: "Server Architecture", icon: <Cpu className="w-4 h-4" /> }, // Using Cpu instead of CpuChip
+      { name: "Performance Optimization", icon: <Zap className="w-4 h-4" /> }
+    ],
+    "Full-Stack": [
+      { name: "End-to-End Solutions", icon: <Braces className="w-4 h-4" /> },
+      { name: "Database Design", icon: <Database className="w-4 h-4" /> },
+      { name: "Deployment", icon: <CloudIcon className="w-4 h-4" /> }, // Using Cloud instead of CloudLightning
+      { name: "Debugging", icon: <Bug className="w-4 h-4" /> }
+    ]
   };
 
+  const tools = {
+    "Development": [
+      { name: "VS Code", icon: <Code className="w-4 h-4" /> },
+      { name: "Git/GitHub", icon: <GitMerge className="w-4 h-4" /> },
+      { name: "Terminal", icon: <Terminal className="w-4 h-4" /> },
+      { name: "Chrome DevTools", icon: <Monitor className="w-4 h-4" /> }
+    ],
+    "Deployment & DevOps": [
+      { name: "Docker", icon: <Container className="w-4 h-4" /> },
+      { name: "AWS", icon: <Cloud className="w-4 h-4" /> },
+      { name: "Vercel/Netlify", icon: <GlobeIcon className="w-4 h-4" /> }, // Using Globe instead of GlobeLock
+      { name: "CI/CD Pipelines", icon: <Workflow className="w-4 h-4" /> }
+    ],
+    "Testing & Monitoring": [
+      { name: "Jest", icon: <Shield className="w-4 h-4" /> },
+      { name: "Postman", icon: <Network className="w-4 h-4" /> },
+      { name: "Lighthouse", icon: <ZapIcon className="w-4 h-4" /> },
+      { name: "Chrome DevTools", icon: <Bug className="w-4 h-4" /> }
+    ]
+  };
+
+  const handleResumeClick = () => {
+    const resumeUrl = "/shahnwaj_alam_resume.pdf";
+    window.open(resumeUrl, "_blank");
+    const link = document.createElement("a");
+    link.href = resumeUrl;
+    link.download = "Shahnwaj_Alam_Resume.pdf";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
 
   return (
-    // <section id="about" className="py-28 px-6 bg-gradient-to-br from-white via-gray-50 to-gray-100 text-black">
-    <section id="about" className="py-28 px-6 bg-white text-black">
-      <div className="max-w-7xl mx-auto">
-        {/* Animated Background Elements */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-r from-orange-500/5 to-orange-600/5 rounded-full blur-3xl"></div>
-          <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-r from-gray-900/5 to-gray-800/5 rounded-full blur-3xl"></div>
-        </div>
-        
-        <div className="relative">
-          {/* Section Header */}
-          <div className="flex items-center gap-6 mb-16">
-            <div className="flex items-center gap-4">
-              <div className="h-12 w-1 bg-gradient-to-b from-orange-500 to-orange-600 rounded-full"></div>
-              {/* <h2 className="text-5xl font-black tracking-tighter bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent"> */}
-              <h2 className="text-5xl font-black tracking-tighter text-black">
-                ABOUT
-              </h2>
-            </div>
-            <div className="h-px bg-gradient-to-r from-orange-600 via-gray-300 to-transparent flex-grow" />
-            {/* <span className="text-sm font-bold tracking-widest text-orange-600 uppercase">
-              01.
-            </span> */}
+    <section id="about" className="min-h-screen bg-white text-black relative overflow-hidden">
+      {/* Grid Background */}
+      <div className="absolute inset-0 overflow-hidden opacity-5">
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,#000_1px,transparent_1px),linear-gradient(#000_1px,transparent_1px)] bg-[size:40px_40px]"></div>
+      </div>
+
+      {/* Accent Lines */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-orange-600/30 to-transparent"></div>
+        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-orange-600/30 to-transparent"></div>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-6 py-20 relative">
+        {/* Header with Terminal Design */}
+        <div className="mb-16">
+          <div className="inline-flex items-center gap-3 bg-black text-white px-6 py-3 rounded-lg mb-8 border border-orange-600/30">
+            <Terminal className="w-5 h-5 text-orange-600" />
+            <span className="text-orange-600 font-mono">$ whoami</span>
           </div>
-
-          <div className="grid lg:grid-cols-3 gap-12">
-            {/* Left Content */}
-            <div className="lg:col-span-2">
-              {/* Name and Title */}
-              <div className="mb-12">
-                <div className="inline-block mb-4">
-                  <div className="flex items-center gap-3">
-                    <span className="text-sm font-bold tracking-widest text-orange-600 uppercase">
-                      Full-Stack Developer
-                    </span>
-                  </div>
-                </div>
-                {/* <h1 className="text-5xl lg:text-6xl font-black tracking-tighter mb-4 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent"> */}
-                <h1 className="text-5xl lg:text-6xl font-black tracking-tighter mb-4 text-black">
-                  SHAHNWAJ ALAM
-                </h1>
-                <p className="text-xl text-gray-600 max-w-2xl">
-                  Crafting digital experiences with modern web technologies
-                </p>
+          
+          <h1 className="text-6xl lg:text-7xl font-black tracking-tighter mb-4">
+            <span className="text-orange-600">{"{"}</span>
+            <span className="text-black ml-2">ShahnwajAlam</span>
+            <span className="text-orange-600">{"}"}</span>
+          </h1>
+          
+          <div className="flex flex-col lg:flex-row lg:items-center gap-6 mt-8">
+            {/* Profile Picture */}
+            <div className="relative group">
+              <div className="relative w-40 h-40 rounded-full overflow-hidden border-2 border-black">
+                {/* Orange Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-br from-orange-600/10 to-transparent mix-blend-multiply"></div>
+                <img 
+                  src="/profile_pic.png"
+                  alt="Shahnwaj Alam"
+                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+                  onError={(e) => {
+                    e.target.onerror = null;
+                    e.target.src = "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80";
+                  }}
+                />
+                {/* Animated Border */}
+                <div className="absolute inset-0 border-2 border-transparent group-hover:border-orange-600/50 transition-all duration-500 rounded-full"></div>
               </div>
+              {/* Floating Tech Icon */}
+              <div className="absolute -top-2 -right-2 w-10 h-10 bg-black border border-orange-600 rounded-full flex items-center justify-center">
+                <Binary className="w-5 h-5 text-white" />
+              </div>
+            </div>
 
-              {/* Bio Content */}
-              <div className="space-y-8 text-gray-700 text-lg leading-relaxed">
-                <div className="relative">
-                  <div className="absolute -left-6 top-2 h-2 w-2 bg-orange-500 rounded-full"></div>
-                  <p className="pl-4">
-                    Hello! I'm <span className="font-semibold text-gray-900">Shahnwaj Alam</span>, a passionate full-stack developer specializing in building exceptional digital experiences. With a keen eye for detail and a commitment to excellence, I transform complex problems into elegant solutions.
-                  </p>
+            {/* Title and Tagline */}
+            <div className="flex-1">
+              <div className="text-orange-600 font-mono text-lg mb-2 flex items-center gap-2">
+                <span className="animate-pulse">▶</span>
+                Full-Stack Developer
+              </div>
+              <p className="text-xl text-gray-700 max-w-2xl leading-relaxed">
+                Building the digital future with clean code and modern solutions. Specializing in robust, scalable applications.
+              </p>
+              
+              {/* Quick Info */}
+              <div className="flex flex-wrap gap-4 mt-4">
+                <div className="flex items-center gap-2 text-gray-600">
+                  <MapPin className="w-4 h-4" />
+                  <span className="text-sm">India</span>
+                </div>
+                <div className="flex items-center gap-2 text-gray-600">
+                  <Mail className="w-4 h-4" />
+                  <span className="text-sm">shahnwaj@example.com</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Main Content Grid */}
+        <div className="grid lg:grid-cols-3 gap-8">
+          {/* Left Column - Bio */}
+          <div className="lg:col-span-2 space-y-8">
+            {/* Terminal Window - Bio */}
+            <div className="bg-white border-2 border-black rounded-xl overflow-hidden shadow-lg">
+              {/* Terminal Header */}
+              <div className="bg-black px-6 py-3 border-b border-orange-600 flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  <div className="flex gap-2">
+                    <div className="w-3 h-3 rounded-full bg-red-500"></div>
+                    <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+                    <div className="w-3 h-3 rounded-full bg-green-500"></div>
+                  </div>
+                  <span className="text-sm font-mono text-orange-600">bio.sh</span>
+                </div>
+                <div className="text-xs text-gray-400 font-mono">~/about</div>
+              </div>
+              
+              {/* Terminal Content */}
+              <div className="p-6 font-mono">
+                <div className="mb-6">
+                  <span className="text-orange-600">$</span>
+                  <span className="text-black ml-2">cat</span>
+                  <span className="text-gray-700 ml-2">introduction.txt</span>
                 </div>
                 
-                <div className="relative">
-                  <div className="absolute -left-6 top-2 h-2 w-2 bg-orange-500 rounded-full"></div>
-                  <p className="pl-4">
-                    My expertise spans across modern JavaScript ecosystems, where I leverage cutting-edge technologies like <span className="font-semibold text-gray-900">React</span>, <span className="font-semibold text-gray-900">Node.js</span>, and <span className="font-semibold text-gray-900">Next.js</span> to build scalable, performant applications that deliver outstanding user experiences.
+                <div className="space-y-4 text-gray-800 ml-6">
+                  <p>
+                    <span className="text-orange-600">&gt;</span> Hello, I'm <span className="text-black font-semibold">Shahnwaj Alam</span>, a passionate developer focused on creating exceptional digital experiences.
+                  </p>
+                  <p>
+                    <span className="text-orange-600">&gt;</span> With expertise in modern JavaScript ecosystems, I build scalable applications using <span className="text-black font-semibold">React</span>, <span className="text-black font-semibold">Node.js</span>, and <span className="text-black font-semibold">Next.js</span>.
+                  </p>
+                  <p>
+                    <span className="text-orange-600">&gt;</span> I believe in writing clean, efficient code that solves real-world problems.
+                  </p>
+                  <p className="mt-6">
+                    <span className="text-orange-600">&gt;</span> <span className="text-black font-semibold">Status:</span> <span className="text-orange-600">Active</span> • <span className="text-black font-semibold">Focus:</span> Full-Stack Development
                   </p>
                 </div>
-
-                {/* Key Highlights */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-12">
-                  {[
-                    { 
-                      text: "1+ years of intensive trainee experience", 
-                      icon: <Rocket className="w-6 h-6 text-orange-500" />,
-                      bgColor: "bg-orange-50"
-                    },
-                    { 
-                      text: "Modern JavaScript ecosystem expertise", 
-                      icon: <Zap className="w-6 h-6 text-orange-500" />,
-                      bgColor: "bg-orange-50"
-                    },
-                    { 
-                      text: "Clean, scalable architecture design", 
-                      icon: <Sparkles className="w-6 h-6 text-orange-500" />,
-                      bgColor: "bg-orange-50" 
-                    },
-                    { 
-                      text: "Agile & collaborative team player", 
-                      icon: <Users className="w-6 h-6 text-orange-500" />,
-                      bgColor: "bg-orange-50"
-                    },
-                  ].map((item, i) => (
-                    <div key={i} className="group flex items-start gap-4 p-4 bg-white/50 border border-gray-200 hover:border-orange-200 hover:bg-white transition-all duration-300">
-                      <span className="text-2xl">{item.icon}</span>
-                      <div>
-                        <p className="text-sm font-semibold text-gray-900 group-hover:text-orange-600 transition-colors">
-                          {item.text}
-                        </p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-
-            {/* Resume Button */}
-            <div className="mt-12">
-                <button
-                  onClick={handleResumeClick}
-                  className="group flex items-center gap-2 px-8 py-4 bg-black text-white font-bold shadow-lg hover:shadow-xl hover:bg-black transition-all duration-300"
-                >
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                  </svg>
-                  Download Resume
-                  <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                  </svg>
-                </button>
-            </div>
-            </div>
+              </div>
             </div>
 
-            {/* Right Panel - Expertise */}
-            <div className="relative">
-              <div className="sticky top-24">
-                <div className="bg-gradient-to-br from-white to-gray-50 p-8  shadow-xl border border-gray-200">
-                  {/* Card Header */}
-                  <div className="flex items-center justify-between mb-8">
-                    <div className="flex items-center gap-3">
-                      <div className="h-10 w-1 bg-gradient-to-b from-orange-500 to-orange-600 "></div>
-                      <h3 className="text-2xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
-                        EXPERTISE
-                      </h3>
-                    </div>
-                    <div className="text-xs font-bold px-3 py-1 bg-orange-100 text-orange-600 ">
-                      FULL-STACK
-                    </div>
-                  </div>
-
-                  {/* Skills Grid */}
-                  <div className="space-y-8">
-                    {Object.entries(skills).map(([category, skillList], index) => (
-                      <div key={category} className="group">
-                        <div className="flex items-center justify-between mb-4">
-                          <p className="text-xs font-bold uppercase tracking-widest text-gray-500 group-hover:text-orange-600 transition-colors">
-                            {category}
-                          </p>
+            {/* Skills Tabs */}
+            <div className="bg-white border-2 border-black rounded-xl overflow-hidden shadow-lg">
+              {/* Tabs Header */}
+              <div className="flex border-b border-orange-600">
+                {['skills', 'expertise', 'tools'].map((tab) => (
+                  <button
+                    key={tab}
+                    onClick={() => setActiveTab(tab)}
+                    className={`px-6 py-3 text-sm font-mono uppercase tracking-wider ${activeTab === tab ? 'text-white bg-black border-r border-orange-600' : 'text-gray-600 hover:text-black hover:bg-gray-100'}`}
+                  >
+                    {tab}
+                  </button>
+                ))}
+              </div>
+              
+              {/* Tabs Content */}
+              <div className="p-6">
+                {/* Skills Tab */}
+                {activeTab === 'skills' && (
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    {Object.entries(skills).map(([category, skillList]) => (
+                      <div key={category} className="space-y-3">
+                        <div className="flex items-center gap-2">
+                          <div className="w-1 h-4 bg-orange-600"></div>
+                          <span className="text-sm text-orange-600 font-mono uppercase">{category}</span>
                         </div>
-                        <div className="flex flex-wrap gap-3">
+                        <div className="flex flex-wrap gap-2">
                           {skillList.map((skill) => (
                             <span 
                               key={skill}
-                              className="px-4 py-2 bg-white border border-gray-200 text-sm font-medium text-gray-800 hover:border-orange-300 hover:text-orange-600 hover:shadow-sm transition-all duration-200"
+                              className="px-3 py-1 bg-white border border-gray-300 text-sm text-gray-800 rounded hover:border-orange-600 hover:text-orange-600 hover:bg-orange-50 transition-all duration-200"
                             >
                               {skill}
                             </span>
@@ -197,27 +259,212 @@ export default function About() {
                       </div>
                     ))}
                   </div>
+                )}
 
-                  {/* Contact Info */}
-                  <div className="mt-12 pt-8 border-t border-gray-200">
-                    <div className="flex items-center gap-4">
-                      <div className="h-12 w-12  bg-gradient-to-br from-orange-500 to-orange-600 flex items-center justify-center">
-                        <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207" />
-                        </svg>
+                {/* Expertise Tab */}
+                {activeTab === 'expertise' && (
+                  <div className="space-y-6">
+                    {Object.entries(expertise).map(([area, expertiseList]) => (
+                      <div key={area} className="space-y-3">
+                        <div className="flex items-center gap-2">
+                          <div className="w-1 h-6 bg-orange-600 rounded-full"></div>
+                          <h4 className="text-sm font-bold text-black uppercase tracking-wide">{area}</h4>
+                        </div>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                          {expertiseList.map((item, idx) => (
+                            <div 
+                              key={idx}
+                              className="flex items-center gap-3 p-3 bg-gray-50 border border-gray-200 rounded-lg hover:border-orange-600 hover:bg-orange-50 transition-all duration-200 group"
+                            >
+                              <div className="p-2 bg-white border border-gray-300 rounded-md group-hover:border-orange-600 group-hover:bg-orange-100 transition-all duration-200">
+                                <div className="text-orange-600">
+                                  {item.icon}
+                                </div>
+                              </div>
+                              <span className="text-sm font-medium text-gray-800 group-hover:text-black">
+                                {item.name}
+                              </span>
+                            </div>
+                          ))}
+                        </div>
                       </div>
-                      <div>
-                        <p className="text-sm font-semibold text-gray-900">Ready to Collaborate</p>
-                        <p className="text-sm text-gray-600">Let's build something amazing together</p>
+                    ))}
+                  </div>
+                )}
+
+                {/* Tools Tab */}
+                {activeTab === 'tools' && (
+                  <div className="space-y-6">
+                    {Object.entries(tools).map(([category, toolsList]) => (
+                      <div key={category} className="space-y-3">
+                        <div className="flex items-center gap-2">
+                          <div className="w-1 h-6 bg-orange-600 rounded-full"></div>
+                          <h4 className="text-sm font-bold text-black uppercase tracking-wide">{category}</h4>
+                        </div>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                          {toolsList.map((tool, idx) => (
+                            <div 
+                              key={idx}
+                              className="flex items-center gap-3 p-3 bg-gray-50 border border-gray-200 rounded-lg hover:border-orange-600 hover:bg-orange-50 transition-all duration-200 group"
+                            >
+                              <div className="p-2 bg-white border border-gray-300 rounded-md group-hover:border-orange-600 group-hover:bg-orange-100 transition-all duration-200">
+                                <div className="text-orange-600">
+                                  {tool.icon}
+                                </div>
+                              </div>
+                              <div className="flex-1">
+                                <span className="text-sm font-medium text-gray-800 group-hover:text-black block">
+                                  {tool.name}
+                                </span>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
                       </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+
+          {/* Right Column - Stats & Contact */}
+          <div className="space-y-8">
+            {/* Stats Card */}
+            <div className="bg-white border-2 border-black rounded-xl p-6 shadow-lg">
+              <h3 className="text-lg font-bold mb-6 flex items-center gap-2">
+                <Cpu className="w-5 h-5 text-orange-600" />
+                <span>System Metrics</span>
+              </h3>
+              
+              <div className="space-y-4">
+                {[
+                  { label: "Experience Level", value: "Full-Stack", level: 85 },
+                  { label: "React Proficiency", value: "Expert", level: 90 },
+                  { label: "Node.js Mastery", value: "Advanced", level: 88 },
+                  { label: "Problem Solving", value: "Excellent", level: 95 },
+                ].map((stat, i) => (
+                  <div key={i} className="space-y-2">
+                    <div className="flex justify-between text-sm">
+                      <span className="text-gray-600">{stat.label}</span>
+                      <span className="text-black font-semibold">{stat.value}</span>
+                    </div>
+                    <div className="h-2 bg-gray-200 rounded-full overflow-hidden">
+                      <div 
+                        className="h-full bg-gradient-to-r from-orange-600 to-orange-500 rounded-full animate-progress"
+                        style={{ width: `${stat.level}%` }}
+                      ></div>
                     </div>
                   </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Contact Card */}
+            <div className="bg-white border-2 border-black rounded-xl p-6 shadow-lg">
+              <h3 className="text-lg font-bold mb-6 flex items-center gap-2">
+                <Wifi className="w-5 h-5 text-orange-600" />
+                <span>Connect</span>
+              </h3>
+              
+              <div className="space-y-4">
+                <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg border border-gray-300 hover:border-orange-600 hover:bg-orange-50 transition-all duration-300">
+                  <Mail className="w-5 h-5 text-orange-600" />
+                  <span className="text-sm text-gray-800">shahnwaj@example.com</span>
                 </div>
+                
+                <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg border border-gray-300 hover:border-orange-600 hover:bg-orange-50 transition-all duration-300">
+                  <Globe className="w-5 h-5 text-orange-600" />
+                  <span className="text-sm text-gray-800">Available Worldwide</span>
+                </div>
+              </div>
+
+              <button
+                onClick={handleResumeClick}
+                className="w-full mt-6 group flex items-center justify-center gap-3 px-6 py-4 bg-black text-white font-bold rounded-lg hover:bg-gray-900 transition-all duration-300 border-2 border-black hover:border-orange-600"
+              >
+                <Download className="w-5 h-5" />
+                Download Resume
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </button>
+            </div>
+
+            {/* Tech Stack Icons */}
+            <div className="bg-white border-2 border-black rounded-xl p-6 shadow-lg">
+              <h4 className="text-sm text-gray-600 mb-4 font-mono">ACTIVE TECHNOLOGIES</h4>
+              <div className="grid grid-cols-3 gap-4">
+                {[
+                  { icon: <Code className="w-8 h-8 text-black" />, label: "React" },
+                  { icon: <Database className="w-8 h-8 text-black" />, label: "Node.js" },
+                  { icon: <Cloud className="w-8 h-8 text-black" />, label: "Next.js" },
+                  { icon: <Shield className="w-8 h-8 text-black" />, label: "TypeScript" },
+                  { icon: <Terminal className="w-8 h-8 text-black" />, label: "Express" },
+                  { icon: <Cpu className="w-8 h-8 text-black" />, label: "MongoDB" },
+                ].map((tech, i) => (
+                  <div 
+                    key={i} 
+                    className="flex flex-col items-center p-3 bg-gray-50 rounded-lg border border-gray-300 hover:border-orange-600 hover:bg-orange-50 transition-all duration-300 group"
+                  >
+                    <div className="group-hover:scale-110 transition-transform duration-300">
+                      {tech.icon}
+                    </div>
+                    <span className="text-xs text-gray-700 mt-2 font-medium">{tech.label}</span>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
         </div>
+
+        {/* Additional Highlights */}
+        <div className="mt-16 grid grid-cols-1 md:grid-cols-4 gap-6">
+          {[
+            {
+              icon: <Zap className="w-6 h-6" />,
+              title: "Fast Development",
+              description: "Quick turnaround with quality code"
+            },
+            {
+              icon: <Sparkles className="w-6 h-6" />,
+              title: "Clean Code",
+              description: "Maintainable and scalable solutions"
+            },
+            {
+              icon: <Rocket className="w-6 h-6" />,
+              title: "Performance",
+              description: "Optimized for speed and efficiency"
+            },
+            {
+              icon: <Users className="w-6 h-6" />,
+              title: "Collaboration",
+              description: "Team player with clear communication"
+            },
+          ].map((item, index) => (
+            <div 
+              key={index} 
+              className="bg-white border-2 border-black rounded-xl p-6 hover:border-orange-600 hover:translate-y-[-4px] transition-all duration-300"
+            >
+              <div className="inline-flex p-3 bg-orange-50 border border-orange-200 rounded-lg mb-4">
+                <div className="text-orange-600">
+                  {item.icon}
+                </div>
+              </div>
+              <h4 className="font-bold text-black mb-2">{item.title}</h4>
+              <p className="text-sm text-gray-600">{item.description}</p>
+            </div>
+          ))}
+        </div>
       </div>
+
+      <style jsx>{`
+        @keyframes progress {
+          from { width: 0%; }
+          to { width: var(--target-width); }
+        }
+        .animate-progress {
+          animation: progress 1s ease-out forwards;
+        }
+      `}</style>
     </section>
   )
 }
