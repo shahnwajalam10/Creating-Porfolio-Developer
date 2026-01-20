@@ -121,10 +121,16 @@ export default function About() {
             <span className="text-orange-600 font-mono">$ whoami</span>
           </div>
           
-          <h1 className="text-6xl lg:text-7xl font-black tracking-tighter mb-4">
+          {/* <h1 className="text-6xl lg:text-7xl font-black tracking-tighter mb-4">
             <span className="text-orange-600">{"{"}</span>
             <span className="text-black ml-2">ShahnwajAlam</span>
             <span className="text-orange-600">{"}"}</span>
+          </h1> */}
+
+          <h1 className="text-[clamp(2.5rem,5vw,4.5rem)] lg:text-7xl font-black tracking-tighter mb-4">
+              <span className="text-orange-600">{"{"}</span>
+              <span className="text-black ml-1 lg:ml-2">ShahnwajAlam</span>
+              <span className="text-orange-600">{"}"}</span>
           </h1>
           
           <div className="flex flex-col lg:flex-row lg:items-center gap-6 mt-8">
