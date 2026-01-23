@@ -28,6 +28,7 @@ import {
   Container,
   Network,
   ShieldCheck,
+  ArrowUpRight,
   // CpuChip, GlobeLock, CloudLightning not available - using alternatives
   Globe as GlobeIcon,
   Cloud as CloudIcon,
@@ -461,6 +462,24 @@ export default function About() {
           ))}
         </div>
       </div>
+
+
+      {/* Quote  */}
+      <div className="px-4 py-8 md:px-8 lg:px-16">
+        <div className="bg-gradient-to-br from-orange-50 to-orange-100 border border-orange-200 rounded-2xl p-6 md:p-8 lg:p-10 max-w-3xl mx-auto">
+          <div className="text-5xl text-orange-600 mb-4 leading-none">"</div>
+
+          <p className="text-lg italic text-gray-800 mb-6">
+            Building software is not just about writing code, it's about creating solutions that make a real difference.
+          </p>
+
+          <div className="flex items-center justify-between">
+            <div className="text-sm text-gray-600">Shahnwaj Alam</div>
+            <ArrowUpRight className="w-5 h-5 text-orange-600" />
+          </div>
+        </div>
+      </div>
+
 
       <style jsx>{`
         @keyframes progress {
