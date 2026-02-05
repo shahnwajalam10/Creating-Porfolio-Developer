@@ -9,6 +9,7 @@ import Navbar from "./Components/Navbar";
 import Footer from "./Components/Footer";
 import Home from "./Components/Home";
 import Skill from "./Components/Skill";
+import Github from "./Components/Github";
 function App() {
 
 
@@ -25,6 +26,7 @@ function App() {
         <Route path = '/education' element = { <Education/> }></Route>
         <Route path = '/contact' element = { <Contact/> }></Route>
         <Route path = '/skill' element = { <Skill/> }></Route>
+        <Route path = '/github' element = { <Github/> }></Route>
       </Routes>
       <Footer/>
     </Router>
